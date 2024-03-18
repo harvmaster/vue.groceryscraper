@@ -20,7 +20,7 @@
 .provider-card {
   position: relative;
   aspect-ratio: 1;
-  border-radius: 1em;
+  border-radius: 1rem;
   overflow: hidden;
   box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.4);
 }
@@ -33,7 +33,8 @@
   aspect-ratio: auto 1;
   max-height: 100%;
   background-image: url('https://logos-world.net/wp-content/uploads/2022/04/Coles-Symbol.png');
-  background-size: cover;
+  background-color: rgb(239, 37, 24);
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   z-index: -1; /* Move the logo below the content */
@@ -42,7 +43,7 @@
 
 .provider-card-content-container {
   height: 100%;
-  outline: 1em solid #27272735;
+  outline: 1rem solid #27272735;
   border-radius: 1em;
   z-index: 1; /* Ensure content is above the logo */
 }
