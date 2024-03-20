@@ -9,7 +9,7 @@
         <!-- Title -->
         <div class="col-auto q-py-xl title-header q-px-md">
           <div class="col-12">
-            <h1 class="text-h1 text-weight-bolder text-center no-margin q-pb-md page-header">Welcome to Groceries</h1>
+            <h1 class="text-h1 text-weight-bolder text-center no-margin q-pb-md page-header-1">Welcome to Groceries</h1>
           </div>
           <!-- Subtitle -->
           <div class="col-12">
@@ -55,14 +55,19 @@
     <!-- Scrapers -->
     <div class="col-12 row justify-center bg-27">
       <div class="col-12 col-md-8 row justify-center q-px-xl">
+
+        <provider-carousel class="col-12" />
         
         <!-- Coles -->
+        <!-- <provider-card class="col-12 col-sm-6 col-md-4 q-pa-md" />
         <provider-card class="col-12 col-sm-6 col-md-4 q-pa-md" />
-        <provider-card class="col-12 col-sm-6 col-md-4 q-pa-md" />
-        <provider-card class="col-12 col-sm-6 col-md-4 q-pa-md" />
+        <provider-card class="col-12 col-sm-6 col-md-4 q-pa-md" /> -->
       </div>
     </div>
     <!-- End Scrapers -->
+
+    <div class="col-12 row justify-center q-py-xl bg-27">
+    </div>
 
   </q-page>
 </template>
@@ -90,7 +95,7 @@
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.212);
 }
 .page-section {
-  height: calc(100vh - 4em);
+  min-height: calc(100vw * 1.8);
 }
 
 .stats-bar {
@@ -100,9 +105,12 @@
 .bg-27 {
   background-color: #272727;
 }
+.page-header-1 {
+  font-size: min(6rem, 16vw);
+}
 </style>
 
 <script setup lang="ts">
 import ProviderCard from 'components/Providers/ProviderCard.vue'
-
+import ProviderCarousel from 'components/Providers/ProviderCarousel.vue'
 </script>
