@@ -6,9 +6,10 @@
         <div class="flex flex-col justify-center items-center gap-y-4 rounded-3xl min-h-[--content-height] md:min-h-0">
           <div class="w-fit flex flex-col gap-4">
             <div class="">
-              <h1 class="text-7xl font-bold text-background-950 grid grid-cols-2">
+              <h1 class="text-7xl font-bold text-background-950 grid grid-cols-[auto_1fr]">
                 <div class="col-span-1">Get</div>
-                <div class="row-span-2 text-9xl">🏪</div>
+                <!-- <div class="row-span-2 text-9xl">🏪</div> -->
+                <div class="row-span-2 text-9xl max-h-min"><img src="../assets/Images/low-poly-groceries.webp" class="max-h-36" /></div>
                 <div class="col-span-1">Your</div>
                 <div class="col-span-2">Shopping</div>
                 <div class="col-span-2">Done</div>
