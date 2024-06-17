@@ -1,10 +1,10 @@
 <template>
   <div class="flex justify-center">
-    <div class="grid grid-cols-1 gap-4 md:max-w-[1920px]">
+    <div class="grid grid-cols-1 gap-4 md:gap-0 md:max-w-[1920px]">
       <!-- <div class="flex flex-wrap gap-4 px-4 justify-center"> -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-4 justify-center md:max-h-[--content-height]">
-        <div class="flex flex-col justify-center items-center gap-y-4 rounded-3xl min-h-[--content-height] md:min-h-0">
-          <div class="w-fit flex flex-col gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 place-items-center gap-4 px-4 md:p-4 justify-center md:max-h-[--content-height]">
+        <div class="flex flex-col justify-center items-center gap-y-4 rounded-3xl h-fit min-h-[--content-height] md:min-h-0">
+          <div class="w-fit h-fit flex flex-col gap-4">
             <div class="">
               <h1 class="text-7xl font-bold text-background-950 grid grid-cols-[auto_1fr]">
                 <div class="col-span-1">Get</div>
@@ -38,15 +38,15 @@
           </div> -->
         </div>
 
-        <div class="flex-auto basis-full md:flex-1">
-            <img class="h-full shadow-[0px_0px_40px_-15px] rounded-3xl" src="https://ideogram.ai/assets/image/lossless/response/eJKff04MTKiRVsDk7XiVWw" alt="logo" />
+        <div class="h-full max-h-full overflow-hidden shadow-[0px_0px_40px_-15px] rounded-3xl">
+          <img class="max-h-full h-full" src="https://ideogram.ai/assets/image/lossless/response/eJKff04MTKiRVsDk7XiVWw" alt="logo" />
           <!-- https://ideogram.ai/assets/image/lossless/response/eJKff04MTKiRVsDk7XiVWw -->
           <!-- <img class="w-full shadow-[0px_0px_40px_-15px] rounded-3xl" src="https://ideogram.ai/assets/progressive-image/balanced/response/h0Nm18B_RSS5ZMvM2JvCMA" alt="logo" /> -->
         </div>
       </div>
 
       <div class="px-4">
-        <div class="bg-gradient-to-b md:bg-gradient-to-r from-background-800 to-primary-800 py-8 grid grid-cols-1 md:grid-cols-4 gap-y-4 rounded-3xl shadow-[0px_0px_40px_-15px]">
+        <div class="text-center bg-gradient-to-b md:bg-gradient-to-r from-background-800 to-primary-800 py-8 grid grid-cols-1 md:grid-cols-4 gap-y-4 rounded-3xl shadow-[0px_0px_40px_-15px]">
           <div class="flex flex-col items-center gap-2">
             <h1 class="text-6xl font-bold text-background-200">12%</h1>
             <h1 class="text-2xl font-bold text-background-200">Avg price (1m)</h1>
@@ -119,7 +119,9 @@
 </template>
 
 <style scoped>
-
+.page_main-section {
+  min-height: min(min-content, var(--content-height));
+}
 </style>
 
 <script setup lang="ts">
