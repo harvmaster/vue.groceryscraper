@@ -47,17 +47,8 @@
                         </div>
                       </div>
                     </div>
-
-                    <!-- <div class="p-2 bg-primary-50 hover:bg-primary-100 cursor-pointer rounded-2xl max-w-full w-full overflow-hidden transition-all " v-for="i in 100">
-                      <div class="flex gap-2">
-                        <div class="w-12 h-12 bg-primary-100 rounded-xl flex-initial"></div>
-                        <div class="flex flex-col flex-1 overflow-x-hidden">
-                          <h1 class="text-primary-500 truncate">Product Name that is really long and wont fit on a single line</h1>
-                          <h2 class="text-primary-400 truncate">Category</h2>
-                        </div>
-                      </div>
-                    </div> -->
                   </transition-group>
+                  
                 </div>
               </div>
             </transition>
