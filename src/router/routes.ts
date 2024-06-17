@@ -1,18 +1,13 @@
-import { RouteRecordRaw } from 'vue-router';
-
-const routes: RouteRecordRaw[] = [
+const routes = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
-  },
+    component: () => import('../layouts/MainLayout.vue'),
+    children: [
+      { path: '/', component: () => import('../pages/TestPage.vue') },
+      { path: '/home', component: () => import('../pages/Home.vue') },
+      { path: '/about', component: () => import('../pages/Home.vue') }
+    ]
+  }
+]
 
-  // Always leave this as last one,
-  // but you can also remove it
-  {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue'),
-  },
-];
-
-export default routes;
+export default routes

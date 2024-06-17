@@ -1,28 +1,32 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated class="row justify-between q-px-md q-py-sm">
-      <div class="col-auto text-h4 text-weight-bold">
-        Groceries
-      </div>
-      <div class="col-auto row self-center text-h5 text-weight-light">
-        <!-- <div class="col-auto">
-          Login
-        </div>
-        <div class="col-auto q-px-sm">
-          <q-separator vertical />
-        </div>
-        <div class="col-auto">
-          Signup
-        </div> -->
-      </div>
-    </q-header>
+  <div class="min-h-svh w-full bg-background-50">
+    <Header class="sticky top-0 z-50">
+      <navbar class="sticky top-0 z-50"/>
+    </Header>
 
-    <q-page-container>
-      <router-view />
-    </q-page-container>
-  </q-layout>
+    <router-view :key="route.path" />
+  </div>
 </template>
 
+<style scoped>
+
+</style>
+
 <script setup lang="ts">
+import { ref, computed, onMounted, onActivated, watch } from 'vue';
+import { useRouter } from 'vue-router';
+
+import Header from '../components/Layout/Header.vue';
+import Navbar from '../components/Navigation/Navbar/Navbar.vue';
+
+const router = useRouter();
+
+const route = computed(() => router.currentRoute.value);
+
+const headerElement = ref<HTMLElement | null>(null);
+watch(headerElement, () => {
+  console.log(headerElement.value?.nodeName)
+  document.styleSheets[0].insertRule(':root { --header-height: ' + headerElement.value?.clientHeight + 'px; }');
+});
 
 </script>
