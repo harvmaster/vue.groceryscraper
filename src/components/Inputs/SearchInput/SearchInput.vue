@@ -25,8 +25,6 @@
                 placeholder="Search for products..."
                 v-model="searchInput"
                 @input="handleSearchInput"
-                @focus="setFocused(true)"
-                @blur="setFocused(false)"
               />
             </div>
 
@@ -48,7 +46,7 @@
                       </div>
                     </div>
                   </transition-group>
-                  
+
                 </div>
               </div>
             </transition>
@@ -85,16 +83,13 @@
 </style>
 
 <script setup lang="ts">
-import { nextTick, ref } from 'vue';
+import { ref } from 'vue';
+import { Product } from '../../../types';
 
 const searchInputElement = ref<HTMLInputElement | null>(null);
 const searchInput = ref<string>('');
 
-const searchFocused = ref(false);
-const setFocused = (focus: boolean) => {
-  nextTick(() => searchFocused.value = focus)
-}
-
+// Search UI
 const searchFocus = ref(false);
 const setSearchFocus = (focus: boolean) => {
   searchFocus.value = focus;
@@ -108,18 +103,7 @@ const toggleSearchFocus = () => {
   }
 }
 
-type Product = {
-    retailer_product_id: string;
-    retailer_product_url: string;
-    retailer_name: string;
-    name: string;
-    barcode: string;
-    img_url: string;
-    tags: string[];
-    create_date: string;
-}
-
-
+//Search Functionality
 const searchResults = ref<Product[]>([]);
 const searchProducts = async (query: string) => {
   if (!query) return searchResults.value = [];
