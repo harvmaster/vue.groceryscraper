@@ -87,7 +87,7 @@
 
             <!-- Img -->
             <div class="">
-              <spline-viewer url="https://prod.spline.design/Hs-kyea3bMszLuG8/scene.splinecode"></spline-viewer>
+              <!-- <spline-viewer url="https://prod.spline.design/Hs-kyea3bMszLuG8/scene.splinecode"></spline-viewer> -->
             </div>
           </div>
 
@@ -96,7 +96,7 @@
 
             <!-- Img -->
             <div class="">
-              <spline-viewer url="https://prod.spline.design/Hs-kyea3bMszLuG8/scene.splinecode"></spline-viewer>
+              <!-- <spline-viewer url="https://prod.spline.design/Hs-kyea3bMszLuG8/scene.splinecode"></spline-viewer> -->
             </div>
 
             <!-- Text -->
