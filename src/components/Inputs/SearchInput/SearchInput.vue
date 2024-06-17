@@ -33,6 +33,7 @@
               <div v-if="searchInput" class="p-2 w-full max-w-md bg-primary-50 shadow-md rounded-2xl ">
                 <div class="grid grid-col-1 gap-1 max-h-[50svh] w-full overflow-y-auto overflow-x-hidden primary-scroll scrollbar scrollbar-track-primary-200 scrollbar-thumb-primary-400 scrollbar-thumb-rounded-lg">
 
+                  <!-- Each Result Listing -->
                   <transition-group name="fade"> 
                     <div class="p-2 bg-primary-50 hover:bg-primary-100 cursor-pointer rounded-2xl max-w-full w-full overflow-hidden transition-all" v-for="product of searchResults" :key="product.retailer_product_id">
                       <div class="flex gap-2">
@@ -114,6 +115,7 @@ const searchProducts = async (query: string) => {
   searchResults.value = data;
 }
 
+// Debounce input requests
 const debounceInput = (fn: Function, delay: number) => {
   let timeout: NodeJS.Timeout;
   return (...args: any) => {
