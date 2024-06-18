@@ -35,7 +35,7 @@
 
                   <!-- Each Result Listing -->
                   <transition-group name="fade"> 
-                    <div class="p-2 bg-primary-50 hover:bg-primary-100 cursor-pointer rounded-2xl max-w-full w-full overflow-hidden transition-all" v-for="product of searchResults" :key="product.retailer_product_id">
+                    <router-link class="p-2 bg-primary-50 hover:bg-primary-100 cursor-pointer rounded-2xl max-w-full w-full overflow-hidden transition-all" v-for="product of searchResults" :key="product.retailer_product_id" :to="`/products/${product.barcode}`">
                       <div class="flex gap-2">
                         <div class="w-12 h-12 bg-primary-100 rounded-xl flex-initial">
                           <img :src="product.img_url" class="w-full h-full object-cover rounded-xl" />
@@ -45,7 +45,7 @@
                           <h2 class="text-primary-400 truncate">{{ product.retailer_name }}</h2>
                         </div>
                       </div>
-                    </div>
+                    </router-link>
                   </transition-group>
 
                 </div>
