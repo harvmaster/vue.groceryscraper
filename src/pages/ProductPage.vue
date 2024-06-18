@@ -10,9 +10,11 @@
     <!-- Primary information -->
     <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-[auto_1fr] gap-2">
       <div class="col-span-2">
-        <router-link v-for="tag of product.tags" :key="tag" :to="`/tags/${tag}`" class="bg-primary-50 hover:bg-primary-100 transition-all cursor-pointer rounded-xl p-4">
-          {{ tag }}
+        [
+        <router-link v-for="(tag, index) of product?.tags" :key="tag" :to="`/tags/${tag}`" class="text-background-500 hover:text-background-700 transition-all cursor-pointer rounded-xl p-1 text-sm">
+          {{ tag }}{{ index !== product.tags.length - 1 ? ', ' : ''}}
         </router-link>
+        ]
       </div>
 
       <div class="max-h-[50svh] aspect-square p-4">
