@@ -30,27 +30,13 @@
         
         <SearchInput class="relative z-50"/>
       </div>
-
-      
-
       
     </div>
   </div>
 </template>
 
 <style scoped>
-.search-container {
-  max-height: 0px;
-  transition: all 0.5s;
-  padding: 0;
-}
 
-.search-container:focus-within {
-  max-height: 4rem;
-  padding: 0.125rem;
-  margin-right: 10px;
-  
-}
 </style>
 
 <script setup lang="ts">
