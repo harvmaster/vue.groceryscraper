@@ -19,7 +19,7 @@
                 <div class="col-span-2">Cheaper</div>
               </h1>
 
-              <h1 class="text-2xl font-bold text-background-700">Across the most popular supermarkets</h1>
+              <h1 class="text-2xl font-bold text-background-700 tracking-tight">Across the most popular supermarkets</h1>
             </div>
             <div class="flex w-full justify-center">
               <router-link 

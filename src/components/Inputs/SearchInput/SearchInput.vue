@@ -30,12 +30,27 @@
 
             <!-- results -->
             <transition name="fade">
-              <div v-if="searchInput" class="p-2 w-full max-w-md bg-primary-50 shadow-md rounded-2xl ">
-                <div class="grid grid-col-1 gap-1 max-h-[50svh] w-full overflow-y-auto overflow-x-hidden primary-scroll scrollbar scrollbar-track-primary-200 scrollbar-thumb-primary-400 scrollbar-thumb-rounded-lg">
+              <div class="p-2 w-full max-w-md bg-primary-50 shadow-md rounded-2xl ">
+                <div class="grid grid-col-1 gap-1 max-h-[50svh] w-full overflow-y-auto overflow-x-hidden primary-scroll scrollbar scrollbar-track-primary-200 scrollbar-thumb-primary-400 scrollbar-thumb-rounded-lg relative">
+
+                  <!-- Search all products button -->
+                  <div class="p-2 sticky top-0 bg-primary-50">
+                    <router-link :to="`/products?q=${searchInput}`" class="flex gap-2 items-center font-bold bg-primary-100 hover:bg-primary-200 transition-all shadow-md rounded-lg p-2 px-8">
+                      <!-- <v-icon name="io-search" class="h-full"/> -->
+                      <h1 class="text-primary-500">Browse {{ searchInput ? `${searchInput}` : 'all products' }}</h1>
+                    </router-link>
+                  </div>
+                  
+                  <!-- Loading spinner -->
+                  <transition name="scale-in">
+                    <div v-if="searchLoading" class="p-2 bg-primary-50 rounded-2xl">
+                      <bounce-loader :color="'red'" size="1em"></bounce-loader>
+                    </div>
+                  </transition>
 
                   <!-- Each Result Listing -->
                   <transition-group name="fade"> 
-                    <router-link class="p-2 bg-primary-50 hover:bg-primary-100 cursor-pointer rounded-2xl max-w-full w-full overflow-hidden transition-all" v-for="product of searchResults" :key="product.retailer_product_id" :to="`/products/${product.barcode}`">
+                    <router-link class="p-2 bg-primary-50 hover:bg-primary-100 cursor-pointer rounded-2xl max-w-full w-full overflow-hidden transition-all" v-for="product of searchResults" :key="product.retailer_product_id" :to="`/products/${product.barcode}`" @click="toggleSearchFocus">
                       <div class="flex gap-2">
                         <div class="w-12 h-12 bg-primary-100 rounded-xl flex-initial">
                           <img :src="product.img_url" class="w-full h-full object-cover rounded-xl" />
@@ -84,8 +99,11 @@
 </style>
 
 <script setup lang="ts">
-import { nextTick, ref } from 'vue';
 import { Product } from '../../../types';
+
+import { nextTick, ref } from 'vue';
+
+import BounceLoader from 'vue-spinner/src/BounceLoader.vue'
 
 const searchInputElement = ref<HTMLInputElement | null>(null);
 const searchInput = ref<string>('');
@@ -110,14 +128,17 @@ const toggleSearchFocus = (event: Event) => {
 }
 
 //Search Functionality
+const searchLoading = ref(false);
 const searchResults = ref<Product[]>([]);
 const searchProducts = async (query: string) => {
   if (!query) return searchResults.value = [];
+  searchLoading.value = true
 
   const response = await fetch(`https://api.groceryscraper.mc.hzuccon.com/api/products/search?q=${query}`);
   const data = await response.json();
 
   searchResults.value = data;
+  searchLoading.value = false;
 }
 
 // Debounce input requests
