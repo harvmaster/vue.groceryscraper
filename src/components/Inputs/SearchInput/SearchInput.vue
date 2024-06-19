@@ -84,7 +84,7 @@
 </style>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { nextTick, ref } from 'vue';
 import { Product } from '../../../types';
 
 const searchInputElement = ref<HTMLInputElement | null>(null);
@@ -95,10 +95,15 @@ const searchFocus = ref(false);
 const setSearchFocus = (focus: boolean) => {
   searchFocus.value = focus;
 }
-const toggleSearchFocus = () => {
+const toggleSearchFocus = (event: Event) => {
+  event.stopPropagation();
+  event.preventDefault();
+
   searchFocus.value = !searchFocus.value;
   if (searchFocus.value) {
-    searchInputElement.value?.focus();
+    nextTick(() => {
+      searchInputElement.value?.focus();
+    })
   } else {
     searchInput.value = '';
   }

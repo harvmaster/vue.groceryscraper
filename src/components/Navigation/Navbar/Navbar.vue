@@ -28,6 +28,7 @@
             
         </nav>
         
+        <!-- Search input is in its own borders so we take it out of nav -->
         <SearchInput class="relative z-50"/>
       </div>
       
